@@ -11,7 +11,6 @@ export const UserProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
-            console.log(user)
             if (user) {
                 createUserDocumentFromAuth(user);
             }
@@ -21,12 +20,13 @@ export const UserProvider = ({ children }) => {
         return unsubscribe;
     }, []);
 
+    const value = {
+        currentUser: currentUserGlobal,
+        setCurrentUser: setCurrentUserGlobal
+    };
+
     return (
-        <UserContext.Provider
-            value={{
-                currentUser: currentUserGlobal,
-                setCurrentUser: setCurrentUserGlobal
-            }}>
+        <UserContext.Provider value={value}>
             {children}
         </UserContext.Provider>
     )
