@@ -7,22 +7,22 @@ export const UserContext = createContext({
 });
 
 export const UserProvider = ({ children }) => {
-    const [currentUserGlobal, setCurrentUserGlobal] = useState(null);
+    const [currentUserGb, setCurrentUserGb] = useState(null);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChangedListener((user) => {
             if (user) {
                 createUserDocumentFromAuth(user);
             }
-            setCurrentUserGlobal(user)
+            setCurrentUserGb(user)
         });
 
         return unsubscribe;
     }, []);
 
     const value = {
-        currentUser: currentUserGlobal,
-        setCurrentUser: setCurrentUserGlobal
+        currentUser: currentUserGb,
+        setCurrentUser: setCurrentUserGb
     };
 
     return (

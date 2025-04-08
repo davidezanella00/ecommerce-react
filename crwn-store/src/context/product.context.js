@@ -7,15 +7,15 @@ export const ProductsContext = createContext({
 });
 
 export const ProductsProvider = ({ children }) => {
-    const [productsGlobal, setProductsGlobal] = useState([]);
+    const [productsGb, setProductsGb] = useState([]);
 
     useEffect(() => {
-        setProductsGlobal(PRODUCTS);
+        setProductsGb(PRODUCTS);
     }, []);
 
     const value = {
-        products: productsGlobal,
-        setProducts: setProductsGlobal
+        products: productsGb,
+        setProducts: setProductsGb
     };
 
     return (
