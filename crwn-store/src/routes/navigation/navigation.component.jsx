@@ -1,6 +1,6 @@
 import { NavigationContainer, LogoContainer, NavLinks, NavLink } from "./navigation.styles.jsx";
 
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Fragment, useContext } from "react";
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import { UserContext } from "../../context/user.context";
