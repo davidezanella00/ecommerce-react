@@ -11,6 +11,7 @@ import {
     StyledShoppingIcon,
     CartCount
 } from './checkout.styles';
+import PaymentForm from "../../components/payment-form/payment-form.component";
 
 const Checkout = () => {
     const cartItems = useSelector(selectCartItems);
@@ -31,6 +32,7 @@ const Checkout = () => {
                         <CheckoutItem key={cartItem.id} cartItemProp={cartItem} />
                     ))}
                     <Total>Total: €{cartTotal}</Total>
+                    <PaymentForm />
                 </div>
             ) : (
                 <EmptyCartMessage>
