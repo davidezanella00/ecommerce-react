@@ -9,26 +9,24 @@ import {
     Price,
     RemoveButton
 } from './checkout-item.styles';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems } from '../../store/cart/cart.selector';
-import { addItemToCartGb, clearItemFromCartGb, removeItemFromCartGb } from '../../store/cart/cart.action';
+import { useDispatch } from 'react-redux';
+import { addItemToCartGb, clearItemFromCartGb, removeItemFromCartGb } from '../../store/cart/cart.reducer';
 
 const CheckoutItem = ({ cartItemProp }) => {
     const { name, price, imageUrl, quantity } = cartItemProp;
 
     const dispatch = useDispatch();
-    const cartItems = useSelector(selectCartItems);
 
     const handleRemoveItem = () => {
-        dispatch(clearItemFromCartGb(cartItems, cartItemProp));
+        dispatch(clearItemFromCartGb(cartItemProp));
     };
 
     const handleIncreaseQuantity = () => {
-        dispatch(addItemToCartGb(cartItems, cartItemProp));
+        dispatch(addItemToCartGb(cartItemProp));
     };
 
     const handleDecreaseQuantity = () => {
-        dispatch(removeItemFromCartGb(cartItems, cartItemProp));
+        dispatch(removeItemFromCartGb(cartItemProp));
     };
 
     return (
